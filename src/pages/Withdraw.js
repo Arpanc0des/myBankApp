@@ -7,7 +7,10 @@ function Withdraw({ balanceAmountVar, handleWithdrawVar }) {
     // tracks each time any changes happens in the text field
     const handleChange = (e) => {
         setWithdrawAmount(e.target.value);
-    };
+    };//couldnt find any other way to read the contents of the input field. 
+    //i dont understand how it works but i will look into it more. this portion is copied from 
+    //https://stackoverflow.com/questions/54422696/in-react-hook-no-e-target-in-handlechange-with-setvalue
+
 
     // Handler for submitting the withdrawal
     const handleSubmit = () => {
@@ -22,9 +25,9 @@ function Withdraw({ balanceAmountVar, handleWithdrawVar }) {
 
     return (
         <div>
-            <h1>You can withdraw your money from here.</h1>
+            <h2>You can withdraw your money from here.</h2>
             <p>This is your current balance</p>
-            <h2>${balanceAmountVar.toFixed(2)}</h2>
+            <h3>${balanceAmountVar.toFixed(2)}</h3>
             <p>How much are you willing to withdraw today?</p>
             <input
                 type="number"

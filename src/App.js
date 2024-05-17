@@ -4,6 +4,7 @@ import Deposit from './pages/Deposit';
 import Home from './pages/Home';
 import Withdraw from './pages/Withdraw';
 import './App.css';
+import logo from './image.png';
 
 function App() {
   const [balanceAmount, setBalanceAmount] = useState(100);
@@ -24,7 +25,8 @@ function App() {
     <BrowserRouter>
       <div>
         <nav>
-          <h1>Welcome To Your Bank</h1>
+          <img src={logo} alt="AgriBank Logo"/>
+          <h1>AgriBank</h1>
           <ul>
             <li><Link to="/">Home</Link></li>
             <li><Link to="/withdraw">Withdraw</Link></li>
