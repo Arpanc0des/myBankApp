@@ -15,7 +15,7 @@ function Withdraw({ balanceAmountVar, handleWithdrawVar }) {
     // Handler for submitting the withdrawal
     const handleSubmit = () => {
         const amount = parseFloat(withdrawAmount);
-        if (isNaN(amount) || amount <= 0) {
+        if (isNaN(amount) || amount <= 0) { //if its not a number or less than 0
             alert("Please enter a valid positive number.");
         } else {
             handleWithdrawVar(amount); // call handleWithdrawVar through props from app.js

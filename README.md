@@ -6,3 +6,6 @@ V 1.0.0
 V 1.0.0.1
 . logo and css fixed.
 . citation written.
+
+V 1.0.1 unstable
+. UI functional. Cant do the transfer yet...
