@@ -9,3 +9,6 @@ V 1.0.0.1
 
 V 1.0.1 unstable
 . UI functional. Cant do the transfer yet...
+
+V 1.1.0 stable
+. Transfer possible
