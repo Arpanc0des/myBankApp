@@ -15,3 +15,6 @@ V 1.1.0 stable
 
 v 1.1.1 
 . Initial balance being fetched from api. everything else is same as before.
+
+v 1.2.0 stable
+. Deposit and Withdraw works from the api information

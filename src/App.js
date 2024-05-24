@@ -34,14 +34,43 @@ function App() {
 
   function handleWithdraw(amount) {
     if (balanceAmount >= amount) {
-      setBalanceAmount(prevBalance => prevBalance - amount);
+      fetch(`http://127.0.0.1:8000/withdraw/${amount}`)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.json();
+        })
+        .then(data => {
+          setBalanceAmount(data.balance);
+          alert("Withdrawal successful!");
+        })
+        .catch(error => {
+          console.error('Error withdrawing:', error);
+          alert("Error withdrawing: " + error.message);
+        });
     } else {
-      alert("Insufficient balance!");
+      alert("Insufficient funds!");
     }
   }
 
   function handleDeposit(amount) {
-    setBalanceAmount(prevBalance => prevBalance + amount);
+    fetch(`http://127.0.0.1:8000/deposit/${amount}`)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        setBalanceAmount(data.balance);
+        alert("Deposit successful!");
+      })
+      .catch(error => {
+        // Handle errors, e.g., display an error message
+        console.error('Error depositing:', error);
+        alert("Error depositing: " + error.message);
+      });
   }
 
   function handleTransfer(from, to, amount) {
