@@ -11,11 +11,9 @@ function Transfer({ handleTransfer }) {
         setTransferAmount(e.target.value);
     };
 
-
     const handleFromAcc = (e1) => {
         setFromAcc(e1.target.value);
     };
-
 
     const handleToAcc = (e2) => {
         setToAcc(e2.target.value);
@@ -29,7 +27,6 @@ function Transfer({ handleTransfer }) {
         setFromAcc("");
         setToAcc("");
     };
-    
 
     return (
         <div>
