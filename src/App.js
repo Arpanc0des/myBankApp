@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import Deposit from './pages/Deposit';
 import Home from './pages/Home';
@@ -8,8 +8,29 @@ import './App.css';
 import logo from './image.png';
 
 function App() {
-  const [balanceAmount, setBalanceAmount] = useState(100);
+  const [balanceAmount, setBalanceAmount] = useState(0);
   const [balanceAmount2, setBalanceAmount2] = useState(10);
+
+  useEffect(() => {
+    fetchBalance();
+  }, []);
+
+  // Function to fetch balance from the API
+  const fetchBalance = () => {
+    fetch('http://127.0.0.1:8000/balance')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        setBalanceAmount(data.balance);
+      })
+      .catch(error => {
+        console.error('Error fetching balance:', error);
+      });
+  };
 
   function handleWithdraw(amount) {
     if (balanceAmount >= amount) {
